@@ -59,7 +59,8 @@ func lower(word string) string {
 }
 
 func ignore(s string) bool {
-	// check if word is within ignore list for title case
+	// check if word is within
+	// ignore list for title case
 	list := wordList()
 	for _, wl := range list {
 		if s == wl {
