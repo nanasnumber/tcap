@@ -8,19 +8,16 @@ import (
 )
 
 func wordList() []string {
-	var r []string
 
 	f, err := os.Open("word-list")
-
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-
 	defer f.Close()
 
+	var r []string
 	scanner := bufio.NewScanner(f)
-
 	for scanner.Scan() {
 		r = append(r, scanner.Text())
 	}
