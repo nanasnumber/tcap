@@ -1,17 +1,30 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"strings"
 )
 
 func wordList() []string {
-	r := []string{
-		"a",
-		"an",
-		"is",
+	var r []string
+
+	f, err := os.Open("word-list")
+
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
+
+	defer f.Close()
+
+	scanner := bufio.NewScanner(f)
+
+	for scanner.Scan() {
+		r = append(r, scanner.Text())
+	}
+
 	return r
 }
 
@@ -75,7 +88,5 @@ func titleCase(word []string) string {
 func main() {
 	input := input()
 	words := words(input)
-
 	fmt.Println(titleCase(words))
-	fmt.Println(wordList())
 }
