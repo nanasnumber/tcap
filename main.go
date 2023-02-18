@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 	"strings"
@@ -9,17 +8,43 @@ import (
 
 func wordList() []string {
 
-	f, err := os.Open("word-list")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	defer f.Close()
+	// f, err := os.Open("word-list")
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	os.Exit(1)
+	// }
+	// defer f.Close()
 
-	var r []string
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		r = append(r, scanner.Text())
+	// var r []string
+	// scanner := bufio.NewScanner(f)
+	// for scanner.Scan() {
+	// 	r = append(r, scanner.Text())
+	// }
+	r := []string{
+		"a",
+		"an",
+		"the",
+		"and",
+		"as",
+		"but",
+		"for",
+		"if",
+		"nor",
+		"or",
+		"so",
+		"yet",
+		"as",
+		"at",
+		"by",
+		"for",
+		"in",
+		"of",
+		"off",
+		"on",
+		"per",
+		"to",
+		"up",
+		"via",
 	}
 
 	return r
